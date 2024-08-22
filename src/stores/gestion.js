@@ -48,6 +48,6 @@ export const useGestionStore = defineStore("gestion", {
     },
     deleteProjet(id) {
       this.projets.splice(id, 1);
-    },
+    }
   },
 })
