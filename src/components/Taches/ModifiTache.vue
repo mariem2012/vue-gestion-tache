@@ -27,7 +27,7 @@
           type="date"
           class="form-control"
           v-model="date_debut"
-          id="date_f"
+          id="date_debut"
           required
         />
       </div>
@@ -37,62 +37,69 @@
           type="date"
           class="form-control"
           v-model="date_fin"
-          id="date_f"
+          id="date_fin"
           required
         />
       </div>
       <div class="mb-3">
         <label for="projet" class="form-label">Projet :</label>
         <select class="form-select" v-model="projet" id="projet" required>
-          <option v-for="(projet, index ) in store.projets" :key="index" :value="projet.nom">{{ projet.nom }}</option>
+          <option v-for="(projetItem, index) in store.projets" :key="index" :value="projetItem.nom">{{ projetItem.nom }}</option>
         </select>
       </div>
-       <button class="btn btn-success mt-3 mb-4 me-3">
-      Enregistrer
+      <button class="btn btn-success mt-3 mb-4 me-3">
+        Enregistrer
       </button>
-    
       <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listtache">
-      <button class="btn btn-danger mt-3 mb-4 ">
-      Annuler
-      </button>
-     </RouterLink> 
+        <button class="btn btn-danger mt-3 mb-4">
+          Annuler
+        </button>
+      </RouterLink> 
     </form>
   </div>
-  
 </template>
 
 <script setup>
 import { useGestionStore } from '@/stores/gestion';
-import { useRouter } from 'vue-router';
-const router = useRouter();
-import { ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue';
+
 const store = useGestionStore();
+const router = useRouter();
+const route = useRoute();
+
 const nom = ref("");
 const description = ref("");
 const date_debut = ref("");
 const date_fin = ref("");
 const projet = ref("");
 
+const id = Number(route.params.id); // Assuming you pass the ID via route params
 
+onMounted(() => {
+  const tache = store.taches.find(tache => tache.id === id);
+  if (tache) {
+    nom.value = tache.nom;
+    description.value = tache.description;
+    date_debut.value = tache.date_debut;
+    date_fin.value = tache.date_fin;
+    projet.value = tache.projet;
+  }
+});
 
 const handleUpdateTache = () => {
-  updateTache();
+  const updatedTache = {
+    id,
+    nom: nom.value,
+    description: description.value,
+    date_debut: date_debut.value,
+    date_fin: date_fin.value,
+    projet: projet.value
+  };
+  
+  store.updateTache(updatedTache);
   router.push('/listtache');
 };
-const updateTache = (tach) => {
-  store.updateTache({nom : nom.value, description :description.value, date_debut : date_debut.value, date_fin :date_fin.value, projet : projet.value })
-  nom.value = tach.nom;
-  description.value = tach.description;
-  date_debut.value = tach.date_debut;
-  date_fin.value = tach.date_fin;
-  projet.value = tach.projet;
-  nom.value= "",
-  description.value= "",
-  date_debut.value= "",
-  date_fin.value= "",
-  projet.value= ""
-};
-
-</script> 
+</script>
 
 <style scoped></style>

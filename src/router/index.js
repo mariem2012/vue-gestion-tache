@@ -5,9 +5,8 @@ import AjoutTache from '@/components/Taches/AjoutTache.vue'
 import ListTache from '@/components/Taches/ListTache.vue'
 import AjoutProjet from '@/components/Projets/AjoutProjet.vue'
 import ListProjet from '@/components/Projets/ListProjet.vue'
-
-
 import ModifiTache from '@/components/Taches/ModifiTache.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -34,11 +33,16 @@ const router = createRouter({
     },
     {
       path: '/listprojet',
-      component: ListProjet,
+      component: ListProjet
     },
+    // {
+    //   path: '/modifietache',
+    //   component: ModifiTache
+    // }
     {
-      path: '/modifietache',
-      component: ModifiTache
+      path: '/modifietache/:id',  // Notez le paramètre dynamique :id
+      component: ModifiTache,
+      props: true  // Passer le paramètre comme props
     }
     
   ]
