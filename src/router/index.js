@@ -3,6 +3,8 @@ import TacheView from '../views/TacheView.vue'
 import ProjetView from '../views/ProjetView.vue'
 import AjoutTache from '@/components/Taches/AjoutTache.vue'
 import ListTache from '@/components/Taches/ListTache.vue'
+import AjoutProjet from '@/components/Projets/AjoutProjet.vue'
+import ListProjet from '@/components/Projets/ListProjet.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,9 +24,15 @@ const router = createRouter({
     {
       path: '/listtache',
       component: ListTache
+    },
+    {
+      path: '/ajoutprojet',
+      component: AjoutProjet
+    },
+    {
+      path: '/listprojet',
+      component: ListProjet
     }
-
- 
   ]
 })
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="list-tache">
     <ListTache/>
   </div>
 </template>
