@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="container">
     
   <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/ajoutlist">
@@ -58,4 +58,116 @@ const destroyTache = () => {
 }
 </script>
 
-<style scoped></style>
+<style scoped></style> -->
+<template>
+  <div class="container">
+    <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/ajoutlist">
+    <button class="btn btn-success mt-3 mb-4" v-if="affichebtn" @click="maskBtn">
+       Ajouter Listes
+    </button>
+  </RouterLink> 
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Date debut</th>
+          <th>Date fin</th>
+          <th>Projet</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(tache, index) in store.taches" :key="index">
+          <td>{{ tache.id }}</td>
+          <td>{{ tache.nom }}</td>
+          <td>{{ tache.description }}</td>
+          <td>{{ tache.date_debut }}</td>
+          <td>{{ tache.date_fin }}</td>
+          <td>{{ tache.projet }}</td>
+          <td>
+            <button class="btn btn-sm" @click="openModal(tache)">
+              <i class="fa-solid fa-eye" style="color: #4596d3; font-size: 25px"></i>
+            </button>
+            <RouterLink :to="{ path: `/modifietache/${tache.id}` }">
+              <button class="btn btn-sm">
+                <i class="fa-solid fa-pen-to-square" style="color: #1ac163; font-size: 25px"></i>
+              </button>
+            </RouterLink>
+            <button class="btn btn-sm" @click="destroyTache(tache.id)">
+              <i class="fa-solid fa-trash" style="color: #e30d0d; font-size: 25px"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div v-if="isModalVisible" class="modal-overlay" @click="closeModal">
+      <div class="modal-content" @click.stop>
+        <div class="modal-body">
+          <h3>Détails de la Tâche</h3>
+          <p><strong>Nom :</strong> {{ selectedTache.nom }}</p>
+          <p><strong>Description :</strong> {{ selectedTache.description }}</p>
+          <p><strong>Date de début :</strong> {{ selectedTache.date_debut }}</p>
+          <p><strong>Date de fin :</strong> {{ selectedTache.date_fin }}</p>
+          <p><strong>Projet :</strong> {{ selectedTache.projet }}</p>
+        </div>
+        <button class="btn btn-danger" @click="closeModal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useGestionStore } from '@/stores/gestion';
+
+const store = useGestionStore();
+let affichebtn = true;
+const maskBtn = () => {
+  affichebtn = false;
+}
+const isModalVisible = ref(false);
+const selectedTache = ref(null);
+
+const openModal = (tache) => {
+  selectedTache.value = tache;
+  isModalVisible.value = true;
+};
+
+const closeModal = () => {
+  isModalVisible.value = false;
+};
+
+const destroyTache = () => {
+  store.deleteTache();
+};
+</script>
+
+<style scoped>
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+}
+
+.modal-body {
+  padding: 20px;
+}
+</style>
