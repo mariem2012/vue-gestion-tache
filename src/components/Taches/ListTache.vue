@@ -19,19 +19,29 @@
         </thead>
         <tbody>
           <tr v-for="(tache, index) in store.taches" :key="index">
-            <td>{{ index+1 }}</td>
+            <td>{{ tache.id }}</td>
             <td>{{ tache.nom}}</td>
             <td>{{ tache.description}}</td>
             <td>{{ tache.date_debut}}</td>
             <td>{{ tache.date_fin}}</td>
             <td>{{ tache.projet}}</td>
             <td>
+              <!-- <button class="btn btn-sm">
+                <i
+                  class="fa-solid fa-pen-to-square"
+                  style="color: #1ac163; font-size: 25px"
+                ></i>
+              </button> -->
+              
+              <RouterLink  class="list text-decoration-none text-white me-5 fw-bold" to="/modifietache" >
+                
               <button class="btn btn-sm">
                 <i
                   class="fa-solid fa-pen-to-square"
                   style="color: #1ac163; font-size: 25px"
                 ></i>
               </button>
+              </RouterLink>
               <button class="btn btn-sm" @click="destroyTache">
                 <i
                   class="fa-solid fa-trash"

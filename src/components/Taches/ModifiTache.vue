@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="handleAddTache" class="form mb-5 mt-5">
+    <form @submit.prevent="handleUpdateTache" class="form mb-5 mt-5">
       <div class="mb-3">
         <label for="nom" class="form-label">Nom :</label>
         <input
@@ -47,12 +47,10 @@
           <option v-for="(projet, index ) in store.projets" :key="index" :value="projet.nom">{{ projet.nom }}</option>
         </select>
       </div>
-      <!-- <button type="submit" class="btn btn-success me-3">Ajouter</button> -->
-      <!-- <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listtache"> -->
-      <button class="btn btn-success mt-3 mb-4 me-3">
-      Ajouter
+       <button class="btn btn-success mt-3 mb-4 me-3">
+      Enregistrer
       </button>
-     <!-- </RouterLink>  -->
+    
       <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listtache">
       <button class="btn btn-danger mt-3 mb-4 ">
       Annuler
@@ -74,17 +72,24 @@ const description = ref("");
 const date_debut = ref("");
 const date_fin = ref("");
 const projet = ref("");
-const handleAddTache = () => {
-  addTache();
+
+
+
+const handleUpdateTache = () => {
+  updateTache();
   router.push('/listtache');
 };
-const addTache = () => {
-  store.addTache({ nom: nom.value, description: description.value, date_debut: date_debut.value, date_fin: date_fin.value, projet: projet.value })
-  // id.value="";
-  nom.value= "";
-  description.value= "";
-  date_debut.value= "";
-  date_fin.value= "";
+const updateTache = (tach) => {
+  store.updateTache({nom : nom.value, description :description.value, date_debut : date_debut.value, date_fin :date_fin.value, projet : projet.value })
+  nom.value = tach.nom;
+  description.value = tach.description;
+  date_debut.value = tach.date_debut;
+  date_fin.value = tach.date_fin;
+  projet.value = tach.projet;
+  nom.value= "",
+  description.value= "",
+  date_debut.value= "",
+  date_fin.value= "",
   projet.value= ""
 };
 
