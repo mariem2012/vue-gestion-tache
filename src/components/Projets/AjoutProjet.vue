@@ -31,7 +31,7 @@
           required
         />
       </div>
-      <button class="btn btn-success mt-3 mb-4 me-3">
+      <button class="clr btn text-white mt-3 mb-4 me-3">
       Ajouter
       </button>
       <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listprojet">
@@ -68,4 +68,11 @@ const addProjet = () => {
 
 </script> 
 
-<style scoped></style>
+<style scoped>
+  .clr{
+    background-color: #044e8f;
+  }
+  .clr:hover{
+    background-color: #023e73;
+  }
+</style>
