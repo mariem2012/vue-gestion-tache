@@ -17,4 +17,9 @@
     min-height: 100vh; 
     color: #fff; 
     }
+    @media (max-width: 768px) {
+  .page-background {
+    background-image: none;
+  }
+}
 </style>
