@@ -16,17 +16,20 @@ export const useGestionStore = defineStore("gestion", {
     
     projets: [
       {
+        id:1,
         nom: "Projet A",
         date_debut: "2024-10-11",
         date_fin: "2024-10-22",
       },
       {
+        id:2,
         nom: "Projet B",
         date_debut: "2024-10-11",
         date_fin: "2024-11-22"
       }
     ],
-    nextId: 2
+    nextId: 2,
+    nextIdP :3
   }),
 
   actions: {
@@ -44,6 +47,7 @@ export const useGestionStore = defineStore("gestion", {
       }
     },
     addProjet(projet) {
+      projet.id = this.nextIdP++;
       this.projets.push(projet);
     },
     deleteProjet(id) {

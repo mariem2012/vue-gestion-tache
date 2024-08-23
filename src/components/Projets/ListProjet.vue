@@ -16,7 +16,7 @@
             <th>Nom</th>
             <th>Date_debut</th>
             <th>Date-fin</th>
-            <th>Actions</th>
+            <th class="text-center" >Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -25,14 +25,14 @@
             <td>{{ projet.nom}}</td>
             <td>{{ projet.date_debut}}</td>
             <td>{{ projet.date_fin}}</td>
-            <td>
+            <td class="text-center">
               <button class="btn btn-sm" @click="openModal(projet)">
                 <i
                   class="fa-solid fa-eye"
                   style="color: #4596d3; font-size: 25px"
                 ></i>
               </button>
-              <RouterLink :to="{ path: `/modifiprojet/${projet.id}` }">
+              <RouterLink :to="{ path: `/modifieprojet/${projet.id}` }">
               <button class="btn btn-sm">
                 <i class="fa-solid fa-pen-to-square" style="color: #1ac163; font-size: 25px"></i>
               </button>
@@ -44,7 +44,8 @@
           </tr>
         </tbody>
       </table>
-
+    </div>
+      </div>
     <div v-if="isModalVisible" class="modal-overlay" @click="closeModal">
       <div class="modal-content" @click.stop>
         <div class="modal-body">

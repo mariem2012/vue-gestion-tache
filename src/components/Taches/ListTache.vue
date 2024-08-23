@@ -15,7 +15,7 @@
           <th>Date debut</th>
           <th>Date fin</th>
           <th>Projet</th>
-          <th>Actions</th>
+          <th class="text-center">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +26,7 @@
           <td>{{ tache.date_debut }}</td>
           <td>{{ tache.date_fin }}</td>
           <td>{{ tache.projet }}</td>
-          <td>
+          <td class="text-center">
             <button class="btn btn-sm" @click="openModal(tache)">
               <i class="fa-solid fa-eye" style="color: #4596d3; font-size: 25px"></i>
             </button>

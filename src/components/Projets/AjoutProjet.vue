@@ -60,7 +60,7 @@ const handleAddProjet = () => {
 };
 
 const addProjet = () => {
-  store.addProjet({nom: nom.value, date_debut: date_debut.value, date_fin: date_fin.value, })
+  store.addProjet({nom: nom.value, date_debut: date_debut.value, date_fin: date_fin.value })
   nom.value= "",
   date_debut.value= "",
   date_fin.value= ""

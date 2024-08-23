@@ -43,7 +43,7 @@ const router = createRouter({
       component: ListProjet
     },
     {
-      path: '/modifieprojet',
+      path: '/modifieprojet/:id',
       component: ModifiProjet,
       props: true
     },

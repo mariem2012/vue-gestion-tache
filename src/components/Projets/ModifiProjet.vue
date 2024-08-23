@@ -31,13 +31,13 @@
           required
         />
       </div>
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label for="projet" class="form-label">Projet :</label>
         <select class="form-select" v-model="projet" id="projet" required>
           <option v-for="(projetItem, index) in store.projets" :key="index" :value="projetItem.nom">{{ projetItem.nom }}</option>
         </select>
-      </div>
-      <button class="btn btn-success mt-3 mb-4 me-3">
+      </div> -->
+      <button class="clr btn mt-3 mb-4 me-3 text-white">
         Enregistrer
       </button>
       <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listprojet">
@@ -86,4 +86,11 @@ const handleUpdateProjet = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .clr{
+    background-color: #044e8f;
+  }
+  .clr:hover{
+    background-color: #023e73;
+  }
+</style>
