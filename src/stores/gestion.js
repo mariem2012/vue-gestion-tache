@@ -48,6 +48,12 @@ export const useGestionStore = defineStore("gestion", {
     },
     deleteProjet(id) {
       this.projets.splice(id, 1);
-    }
-  },
+    },
+    updateProjet(updatedProjet) {
+      const index = this.projets.findIndex(p => p.id === updatedProjet.id);
+      if (index !== -1) {
+        this.projets[index] = updatedProjet;
+      }
+    },
+  }
 })

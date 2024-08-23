@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="handleUpdateTache" class="form mb-5 mt-5">
+    <form @submit.prevent="handleUpdateProjet" class="form mb-5 mt-5">
       <div class="mb-3">
         <label for="nom" class="form-label">Nom :</label>
         <input
@@ -8,16 +8,6 @@
           class="form-control"
           v-model="nom"
           id="nom"
-          required
-        />
-      </div>
-      <div class="mb-3">
-        <label for="description" class="form-label">Description :</label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="description"
-          id="description"
           required
         />
       </div>
@@ -50,7 +40,7 @@
       <button class="btn btn-success mt-3 mb-4 me-3">
         Enregistrer
       </button>
-      <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listtache">
+      <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listprojet">
         <button class="btn btn-danger mt-3 mb-4">
           Annuler
         </button>
@@ -69,36 +59,30 @@ const router = useRouter();
 const route = useRoute();
 
 const nom = ref("");
-const description = ref("");
 const date_debut = ref("");
 const date_fin = ref("");
-const projet = ref("");
 
 const id = Number(route.params.id); 
 
 onMounted(() => {
-  const tache = store.taches.find(tache => tache.id === id);
-  if (tache) {
-    nom.value = tache.nom;
-    description.value = tache.description;
-    date_debut.value = tache.date_debut;
-    date_fin.value = tache.date_fin;
-    projet.value = tache.projet;
+  const projet = store.projets.find(projet => projet.id === id);
+  if (projet) {
+    nom.value = projet.nom;
+    date_debut.value = projet.date_debut;
+    date_fin.value = projet.date_fin;
   }
 });
 
-const handleUpdateTache = () => {
-  const updatedTache = {
+const handleUpdateProjet = () => {
+  const updatedProjet = {
     id,
     nom: nom.value,
-    description: description.value,
     date_debut: date_debut.value,
-    date_fin: date_fin.value,
-    projet: projet.value
+    date_fin: date_fin.value
   };
   
-  store.updateTache(updatedTache);
-  router.push('/listtache');
+  store.updateProjet(updatedProjet);
+  router.push('/listprojet');
 };
 </script>
 
