@@ -47,7 +47,7 @@
           <option v-for="(projetItem, index) in store.projets" :key="index" :value="projetItem.nom">{{ projetItem.nom }}</option>
         </select>
       </div>
-      <button class="btn btn-success mt-3 mb-4 me-3">
+      <button class="clr btn btn-success mt-3 mb-4 me-3">
         Enregistrer
       </button>
       <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listtache">
@@ -102,4 +102,11 @@ const handleUpdateTache = () => {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .clr{
+    background-color: #044e8f;
+  }
+  .clr:hover{
+    background-color: #023e73;
+  }
+</style>
