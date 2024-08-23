@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="handleAddProjet" class="form mb-5 mt-5">
+    <form @submit.prevent="handleAddProjet" class="formulaire form mb-5 mt-5 shadow p-3 mb-5 bg-body rounded">
       <div class="mb-3">
         <label for="nom" class="form-label">Nom :</label>
         <input
@@ -74,5 +74,11 @@ const addProjet = () => {
   }
   .clr:hover{
     background-color: #023e73;
+  }
+  .formulaire{
+    width: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
   }
 </style>

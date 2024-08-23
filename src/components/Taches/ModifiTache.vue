@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <form @submit.prevent="handleUpdateTache" class="form mb-5 mt-5">
+    <form @submit.prevent="handleUpdateTache" class="formulaire form mb-5 mt-5 shadow p-3 mb-5 bg-body rounded">
       <div class="mb-3">
         <label for="nom" class="form-label">Nom :</label>
         <input
           type="text"
-          class="form-control"
+          class="input form-control"
           v-model="nom"
           id="nom"
           required
@@ -15,7 +15,7 @@
         <label for="description" class="form-label">Description :</label>
         <input
           type="text"
-          class="form-control"
+          class="input form-control"
           v-model="description"
           id="description"
           required
@@ -25,7 +25,7 @@
         <label for="date_d" class="form-label">Date debut :</label>
         <input
           type="date"
-          class="form-control"
+          class="input form-control"
           v-model="date_debut"
           id="date_debut"
           required
@@ -35,7 +35,7 @@
         <label for="date_f" class="form-label">Date fin :</label>
         <input
           type="date"
-          class="form-control"
+          class="input form-control"
           v-model="date_fin"
           id="date_fin"
           required
@@ -43,7 +43,7 @@
       </div>
       <div class="mb-3">
         <label for="projet" class="form-label">Projet :</label>
-        <select class="form-select" v-model="projet" id="projet" required>
+        <select class="input form-select" v-model="projet" id="projet" required>
           <option v-for="(projetItem, index) in store.projets" :key="index" :value="projetItem.nom">{{ projetItem.nom }}</option>
         </select>
       </div>
@@ -109,4 +109,14 @@ const handleUpdateTache = () => {
   .clr:hover{
     background-color: #023e73;
   }
+  /* .input{
+    width: 50%;
+  } */
+  .formulaire{
+    width: 50%;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+  }
+  
 </style>
