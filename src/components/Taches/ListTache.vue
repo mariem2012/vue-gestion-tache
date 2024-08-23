@@ -1,12 +1,13 @@
 <template>
   <div class="container">
-    <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/ajoutlist">
-    <button class="btn btn-success mt-3 mb-4" v-if="affichebtn" @click="maskBtn">
-       Ajouter Listes
+    <RouterLink class="list text-decoration-none text-white me-5 fw-bold"  to="/ajoutlist">
+    <button class="clr btn text-white mt-5 mb-4 fw-bold"  v-if="affichebtn" @click="maskBtn">
+       Ajouter une tache
     </button>
   </RouterLink> 
-    <table class="table table-striped">
-      <thead>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered border-black ">
+      <thead class="table-success">
         <tr>
           <th>Id</th>
           <th>Nom</th>
@@ -30,7 +31,7 @@
               <i class="fa-solid fa-eye" style="color: #4596d3; font-size: 25px"></i>
             </button>
             <RouterLink :to="{ path: `/modifietache/${tache.id}` }">
-              <button class="btn btn-sm">
+              <button class="btn btn-sm ">
                 <i class="fa-solid fa-pen-to-square" style="color: #1ac163; font-size: 25px"></i>
               </button>
             </RouterLink>
@@ -42,6 +43,7 @@
       </tbody>
     </table>
 
+  </div>
     <div v-if="isModalVisible" class="modal-overlay" @click="closeModal">
       <div class="modal-content" @click.stop>
         <div class="modal-body">
@@ -85,6 +87,11 @@ const destroyTache = () => {
 </script>
 
 <style scoped>
+
+.clr{
+  background-color: #044e8f;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;

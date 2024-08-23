@@ -1,13 +1,16 @@
 <template>
-  <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/ajoutprojet">
-    <button class="btn btn-success mt-3 mb-4" v-if="affichebtn" @click="maskBtn">
-       Ajouter Listes
-    </button>
-  </RouterLink>  
-  <table
-        class="table table-striped"
+  <div class="container">
+    
+    <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/ajoutprojet">
+      <button class="clr btn text-white mt-5 mb-4 fw-bold" v-if="affichebtn" @click="maskBtn">
+        Ajouter un Projet
+      </button>
+    </RouterLink>  
+    <div class="table-responsive">
+      <table
+        class="table table-striped table-bordered border-black"
       >
-        <thead>
+        <thead class="table-success">
           <tr>
             <th>Id</th>
             <th>Nom</th>
@@ -105,5 +108,11 @@ const destroyProjet = () => {
 
   .modal-body {
     padding: 20px;
+  }
+  .clr{
+    background-color: #044e8f;
+  }
+  .clr:hover{
+    background-color: #023e73;
   }
 </style>

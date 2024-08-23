@@ -7,12 +7,18 @@ import AjoutProjet from '@/components/Projets/AjoutProjet.vue'
 import ListProjet from '@/components/Projets/ListProjet.vue'
 import ModifiTache from '@/components/Taches/ModifiTache.vue'
 import ModifiProjet from '@/components/Projets/ModifiProjet.vue'
+import HomePage from '@/components/HomePage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    
     {
       path: '/',
+      component: HomePage
+    },
+    {
+      path: '/tache',
       component: TacheView
     },
     {
