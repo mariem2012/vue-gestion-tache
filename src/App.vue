@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
    <div class="page-background">
       
   <header>
-    <nav class="navbar navbar-expand-lg custom-navbar ">
+    <nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container">
       <a class="navbar-brand fw-bold bib" >
         <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/">GestionTache</RouterLink>

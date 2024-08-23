@@ -81,8 +81,8 @@ const closeModal = () => {
   isModalVisible.value = false;
 };
 
-const destroyTache = () => {
-  store.deleteTache();
+const destroyTache = (id) => {
+  store.deleteTache(id);
 };
 </script>
 

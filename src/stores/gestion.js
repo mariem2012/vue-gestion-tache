@@ -37,9 +37,12 @@ export const useGestionStore = defineStore("gestion", {
       tache.id = this.nextId++;
       this.taches.push(tache)
     },
-    deleteTache(id) {
-      this.taches.splice(id, 1);
-    },
+      deleteTache(id) {
+        const index = this.taches.findIndex(tache => tache.id === id);
+        if (index !== -1) {
+          this.taches.splice(index, 1);
+        }
+      },
     updateTache(updatedTache) {
       const index = this.taches.findIndex(tache => tache.id === updatedTache.id);
       if (index !== -1) {
@@ -53,7 +56,10 @@ export const useGestionStore = defineStore("gestion", {
       this.projets.push(projet);
     },
     deleteProjet(id) {
-      this.projets.splice(id, 1);
+      const index = this.projets.findIndex(projet => projet.id === id);
+      if (index !== -1) {
+        this.projets.splice(index, 1);
+      }
     },
     updateProjet(updatedProjet) {
       const index = this.projets.findIndex(p => p.id === updatedProjet.id);

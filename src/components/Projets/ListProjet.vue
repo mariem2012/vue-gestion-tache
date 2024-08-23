@@ -80,8 +80,8 @@ const closeModal = () => {
   isModalVisible.value = false;
 }
 
-const destroyProjet = () => {
-  store.deleteProjet()
+const destroyProjet = (id) => {
+  store.deleteProjet(id)
 }
 </script>
    
