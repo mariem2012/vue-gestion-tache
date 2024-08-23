@@ -3,7 +3,7 @@
     
     <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/ajoutprojet">
       <button class="clr btn text-white mt-5 mb-4 fw-bold" v-if="affichebtn" @click="maskBtn">
-        Ajouter Projets
+        Ajouter un Projet
       </button>
     </RouterLink>  
     <div class="table-responsive">

@@ -2,7 +2,7 @@
   <div class="container">
     <RouterLink class="list text-decoration-none text-white me-5 fw-bold"  to="/ajoutlist">
     <button class="clr btn text-white mt-5 mb-4 fw-bold"  v-if="affichebtn" @click="maskBtn">
-       Ajouter des taches
+       Ajouter une tache
     </button>
   </RouterLink> 
   <div class="table-responsive">
