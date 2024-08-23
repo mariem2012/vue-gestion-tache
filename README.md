@@ -2,8 +2,8 @@
 
 ## Description
 
-Développer une application web de gestion des tâches et des projets en utilisant Vue.js 3 et la
-Composition API. La gestion des états doit être réalisée avec Pinia, et la navigation entre les
+Gestion Tâche App une application web de gestion des tâches et des projets en utilisant Vue.js 3 et la
+Composition API. La gestion des états est réalisée avec Pinia, et la navigation entre les
 différentes sections (Tâches, Projets) est géré avec Vue Router. L'interface utilisateur
 est stylé avec Bootstrap.
 
@@ -52,25 +52,19 @@ npm run dev
 
 1. **Taches :** 
 
- - Fonction : addTache({nom(string),description(string), date_debut(date), date_fin(date), projet(string)})
- cette fonction permet d'ajouter une tache.
-    
- - Fonction : deleteTache(id)
- cette fonction permet d'effacer une tache à partir de son id.
+ - addTache : cette fonction permet d'ajouter une tache.
  
- - Fonction : updateTache ({nom(string), description(string), date_debut(date), date_fin(date), projet(string)})
- cette fonction permet de modifier une tache.
+ - deleteTache : cette fonction permet d'effacer une tache à partir de son id.
+ 
+ - updateTache :  cette fonction permet de modifier une tache.
 
 2. **Projets :**
 
- - Fonction : addProjet({nom(string), date_debut(date), date_fin(date), })
- cette fonction permet d'ajouter un projet.
+ - addProjet : cette fonction permet d'ajouter un projet.
     
- - Fonction : deleteProjet(id)
- cette fonction permet d'effacer un projet à partir de son id.
+ - deleteProjet : cette fonction permet d'effacer un projet à partir de son id.
 
-- Fonction : updateProjet ({nom(string), date_debut(date), date_fin(date)})
- cette fonction permet de modifier un projet.
+-  updateProjet : cette fonction permet de modifier un projet.
 
 ## Authors
  - [Ousmane Ibrahima Ly](https://github.com/Ousmanly)

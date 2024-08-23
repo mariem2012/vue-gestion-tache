@@ -47,12 +47,9 @@
           <option v-for="(projet, index ) in store.projets" :key="index" :value="projet.nom">{{ projet.nom }}</option>
         </select>
       </div>
-      <!-- <button type="submit" class="btn btn-success me-3">Ajouter</button> -->
-      <!-- <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listtache"> -->
       <button class="clr btn mt-3 mb-4 me-3 text-white ">
       Ajouter
       </button>
-     <!-- </RouterLink>  -->
       <RouterLink class="list text-decoration-none text-white me-5 fw-bold" to="/listtache">
       <button class="btn btn-danger mt-3 mb-4">
       Annuler
@@ -81,7 +78,6 @@ const handleAddTache = () => {
 };
 const addTache = () => {
   store.addTache({ nom: nom.value, description: description.value, date_debut: date_debut.value, date_fin: date_fin.value, projet: projet.value })
-  // id.value="";
   nom.value= "";
   description.value= "";
   date_debut.value= "";

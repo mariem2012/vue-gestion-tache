@@ -46,6 +46,8 @@ export const useGestionStore = defineStore("gestion", {
         this.taches[index] = updatedTache;
       }
     },
+
+    
     addProjet(projet) {
       projet.id = this.nextIdP++;
       this.projets.push(projet);
