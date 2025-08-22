@@ -76,6 +76,7 @@ const handleAddTache = () => {
   addTache();
   router.push('/listtache');
 };
+//
 const addTache = () => {
   store.addTache({ nom: nom.value, description: description.value, date_debut: date_debut.value, date_fin: date_fin.value, projet: projet.value })
   nom.value= "";
@@ -84,7 +85,7 @@ const addTache = () => {
   date_fin.value= "";
   projet.value= ""
 };
-
+//dflgmdfkmgkdl
 </script> 
 
 <style scoped>
